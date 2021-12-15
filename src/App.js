@@ -7,9 +7,8 @@ export function App() {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState('');
-  const [type, setType] = useState('All');
+  const [type, setType] = useState('all');
 
- 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPokemon(query, type);
@@ -19,7 +18,7 @@ export function App() {
     if (loading) {
       fetchData();
     }
-  }, [loading, query]);
+  }, [loading, query, type]);
 
   return (
     <div>
